@@ -12,7 +12,13 @@ const STATS = [
   { label: 'Following', value: '180' },
 ];
 
-const SKILLS = ['React Native', 'JavaScript', 'UI Design', 'Git', 'Flexbox'];
+const SKILLS = [
+  'React Native',
+  'JavaScript',
+  'UI Design',
+  'Git',
+  'Flexbox'
+];
 
 export default function App() {
   return (
@@ -20,8 +26,8 @@ export default function App() {
       {/* TODO STEP 1: build the card with View and Text (name, role, location, bio) */}
       <View style={styles.card}>
         {/* TODO STEP 2: add the banner and the avatar with Image */}
-          <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
-          <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
+        <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
+        <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
         <View style={styles.body}>
           {/* TODO STEP 3: header row and stats row with Flexbox */}
           <View style={styles.headerText}>
@@ -44,7 +50,7 @@ export default function App() {
           <View style={styles.body}>
             <View style={styles.headerRow}></View>
             <View>
-              <Image source={require('./assets/avatar.png')}></Image>
+              {/*<Image source={require('./assets/avatar.png')}></Image>*/}
               <View style={styles.onlineBadge}></View>
             </View>
             <View style={styles.tags}>
@@ -81,28 +87,30 @@ const styles = StyleSheet.create({
   },
   onlineBadge: {
     position: 'absolute',
-    right: 4, 
-    bottom: 4, 
-    width: 18, 
+    right: 4,
+    bottom: 4,
+    width: 18,
     height: 18,
-    borderRadius: 9, 
-    backgroundColor: '#22C55E', 
-    borderWidth: 3, 
+    borderRadius: 9,
+    backgroundColor: '#22C55E',
+    borderWidth: 3,
     borderColor: '#FFFFFF'
   },
-  tags: { 
-    flexDirection: 'row', 
-    flexWrap: 'wrap', 
-    gap: 8, 
-    marginTop: 16 },
-  actions: { 
-    flexDirection: 'row', 
-    gap: 12, 
-    marginTop: 20 },
-  button: { 
-    flex: 1, 
-    alignItems: 'center', 
-    paddingVertical: 12 
+  tags: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 16
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 20
+  },
+  button: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 12
   },
   avatar: {
     width: 190,
@@ -119,18 +127,24 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 20,
   },
-  statsRow: {
+  // Estadísticas
+  tags: {
     flexDirection: "row",
+    flexWrap: "wrap",
     marginHorizontal: 40,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: "#DDE1E7",
+    marginTop: 30,
+    gap: 15,
   },
-  stats: {
-    flex: 1,
-    alignItems: "center",
-    paddingVertical: 20,
-    borderRightWidth: 1,
-    borderColor: "#DDE1E7",
-  }
+  tag: {
+    backgroundColor: "#E6EEFF",
+    borderRadius: 30,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+  },
+
+  tagText: {
+    fontSize: 24,
+    fontWeight: "600",
+    color: "#3474F6",
+  },
 });

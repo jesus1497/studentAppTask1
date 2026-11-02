@@ -18,10 +18,53 @@ export default function App() {
   return (
     <View style={styles.screen}>
       {/* TODO STEP 1: build the card with View and Text (name, role, location, bio) */}
-      {/* TODO STEP 2: add the banner and the avatar with Image */}
-      {/* TODO STEP 3: header row and stats row with Flexbox */}
-      {/* TODO STEP 4: online badge, skill tags and action buttons (layout) */}
-      {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
+      <View style={styles.card}>
+        {/* TODO STEP 2: add the banner and the avatar with Image */}
+        <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
+        <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
+        <View style={styles.body}>
+          {/* TODO STEP 3: header row and stats row with Flexbox */}
+          <View style={styles.headerRow}>
+            <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
+          </View>
+          <View style={styles.headerText}>
+            <Text style={styles.name}>Miguel Armenta</Text>
+            <Text style={styles.role}>Developer</Text>
+            <Text style={styles.location}>Sin, Mexico</Text>
+            <Text style={styles.bio}>Pending?</Text>
+          </View>
+          <View styles={styles.statsRow}>
+            {
+              STATS.map((item, index) => (
+                <View key={item.label} style={[styles.stats, index - STATS.length - 1 && styles.statsDevider]}>
+                  <Text style={styles.statValue}>{item.value}</Text>
+                  <Text style={styles.statLabel}>{item.label}</Text>
+                </View>
+              ))
+            }
+          </View>
+          {/* TODO STEP 4: online badge, skill tags and action buttons (layout) */}
+          <View style={styles.body}>
+            <View style={styles.headerRow}></View>
+            <View>
+              <Image source={require('./assets/avatar.png')}></Image>
+              <View style={styles.onlineBadge}></View>
+            </View>
+            <View style={styles.tags}>
+              {SKILLS.map((skill) => (
+                <View key={skill} style={styles.tag}>
+                  <Text style={styles.tagText}>{skill}</Text>
+                </View>
+              ))}
+            </View>
+            <View style={styles.actions}>
+              <View style={[styles.button, styles.primaryButton]}>Follow</View>
+              <View style={styles.button}>Message</View>
+            </View>
+          </View>
+          {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
+        </View>
+      </View>
       <Text>TODO: build the profile card</Text>
     </View>
   );
@@ -34,4 +77,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#EEF1F6',
   },
+  card: {
+
+  },
+  onlineBadge: {
+    position: 'absolute', right: 4, bottom: 4, width: 18, height: 18,
+    borderRadius: 9, backgroundColor: '#22C55E', borderWidth: 3, borderColor: '#FFFFFF'
+  },
+  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 16 },
+  actions: { flexDirection: 'row', gap: 12, marginTop: 20 },
+  button: { flex: 1, alignItems: 'center', paddingVertical: 12 },
 });

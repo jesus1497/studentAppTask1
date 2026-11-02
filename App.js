@@ -61,8 +61,8 @@ export default function App() {
               ))}
             </View>
             <View style={styles.actions}>
-              <Text style={[styles.button, styles.primaryButton]}>Follow</Text>
-              <Text style={styles.button}>Message</Text>
+              <Text style={[styles.button, styles.primaryButton, styles.buttonText]}>Follow</Text>
+              <Text style={[styles.button, styles.messageButton, styles.messageText]}>Message</Text>
             </View>
           </View>
           {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
@@ -103,12 +103,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#FFFFFF'
   },
-  tags: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    marginTop: 16
-  },
   actions: {
     flexDirection: 'row',
     gap: 12,
@@ -138,21 +132,58 @@ const styles = StyleSheet.create({
   tags: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     marginTop: 30,
-    gap: 15,
+    gap: 10,
   },
   tag: {
     backgroundColor: "#E6EEFF",
     borderRadius: 30,
     paddingVertical: 12,
-    paddingHorizontal: 24,
+    paddingHorizontal: 20,
   },
 
   tagText: {
-    fontSize: 24,
+    fontSize: 15,
     fontWeight: "600",
     color: "#3474F6",
   },
   // Skills
+  // Botones
+  button: {
+    flexDirection: "row",
+    marginHorizontal: 10,
+    marginTop: 40,
+    marginBottom: 40,
+    gap: 24,
+  },
+
+  primaryButton: {
+    flex: 1,
+    backgroundColor: "#3474F6",
+    borderRadius: 24,
+    paddingVertical: 24,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  messageButton: {
+    flex: 1,
+    borderWidth: 2,
+    borderColor: "#3474F6",
+    borderRadius: 24,
+    paddingVertical: 24,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonText: {
+    fontSize: 30,
+    fontWeight: "600",
+    color: "#FFFFFF",
+  },
+
+  messageText: {
+    fontSize: 30,
+    fontWeight: "600",
+    color: "#3474F6",
+  },
 });

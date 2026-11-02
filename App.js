@@ -80,6 +80,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#EEF1F6',
   },
+  // Banner superior
+  banner: {
+    height: 150,
+    backgroundColor: "#5455F5",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 32,
@@ -127,7 +134,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 20,
   },
-  // Estadísticas
+  // Skills
   tags: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -147,4 +154,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#3474F6",
   },
+  // Skills
 });

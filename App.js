@@ -58,8 +58,8 @@ export default function App() {
               ))}
             </View>
             <View style={styles.actions}>
-              <View style={[styles.button, styles.primaryButton]}>Follow</View>
-              <View style={styles.button}>Message</View>
+              <Text style={[styles.button, styles.primaryButton]}>Follow</Text>
+              <Text style={styles.button}>Message</Text>
             </View>
           </View>
           {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}

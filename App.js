@@ -36,6 +36,7 @@ export default function App() {
             <Text style={styles.location}>Sin, Mexico</Text>
             <Text style={styles.bio}>Pending?</Text>
           </View>
+          {/*Estadisticas*/}
           <View styles={styles.statsRow}>
             {
               STATS.map((item, index) => (
@@ -127,6 +128,32 @@ const styles = StyleSheet.create({
   headerText: {
     flex: 1,
     paddingTop: 20,
+  },
+  // Estadisticas
+  statsRow: {
+    flexDirection: "row",
+    marginHorizontal: 40,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "#DDE1E7",
+  },
+  stats: {
+    flex: 1,
+    alignItems: "center",
+    paddingVertical: 20,
+    borderRightWidth: 1,
+    borderColor: "#DDE1E7",
+  },
+  statValue: {
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#202431",
+  },
+
+  statLabel: {
+    fontSize: 24,
+    color: "#6B7280",
+    marginTop: 5,
   },
   // Skills
   tags: {

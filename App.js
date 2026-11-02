@@ -20,8 +20,8 @@ export default function App() {
       {/* TODO STEP 1: build the card with View and Text (name, role, location, bio) */}
       <View style={styles.card}>
         {/* TODO STEP 2: add the banner and the avatar with Image */}
-        <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
-        <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
+          <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
+          <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
         <View style={styles.body}>
           {/* TODO STEP 3: header row and stats row with Flexbox */}
           <View style={styles.headerText}>
@@ -115,5 +115,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 25,
   },
-
+  headerText: {
+    flex: 1,
+    paddingTop: 20,
+  },
+  statsRow: {
+    flexDirection: "row",
+    marginHorizontal: 40,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "#DDE1E7",
+  },
+  stats: {
+    flex: 1,
+    alignItems: "center",
+    paddingVertical: 20,
+    borderRightWidth: 1,
+    borderColor: "#DDE1E7",
+  }
 });

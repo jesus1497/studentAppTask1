@@ -27,7 +27,7 @@ export default function App() {
       <View style={styles.card}>
         {/* TODO STEP 2: add the banner and the avatar with Image */}
         <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
-        <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
+        <Image style={[styles.avatar, styles.circle1]} source={require('./assets/avatar.png')}></Image>
         <View style={styles.body}>
           {/* TODO STEP 3: header row and stats row with Flexbox */}
           <View style={styles.headerText}>
@@ -83,10 +83,19 @@ const styles = StyleSheet.create({
   },
   // Banner superior
   banner: {
-    height: 150,
+    height: 200,
     backgroundColor: "#5455F5",
     justifyContent: "center",
     alignItems: "center",
+  },
+  circle1: {
+    position: "absolute",
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    backgroundColor: "#7B70F9",
+    right: 125,
+    top: 110,
   },
   card: {
     backgroundColor: "#FFFFFF",
@@ -127,7 +136,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 0,
   },
   // Estadisticas
   statsRow: {

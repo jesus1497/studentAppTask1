@@ -28,6 +28,7 @@ export default function App() {
         {/* TODO STEP 2: add the banner and the avatar with Image */}
         <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
         <Image style={[styles.avatar, styles.circle1]} source={require('./assets/avatar.png')}></Image>
+        <View style={styles.onlineBadge}></View>
         <View style={styles.body}>
           {/* TODO STEP 3: header row and stats row with Flexbox */}
           <View style={styles.headerText}>
@@ -49,11 +50,6 @@ export default function App() {
           </View>
           {/* TODO STEP 4: online badge, skill tags and action buttons (layout) */}
           <View style={styles.body}>
-            <View style={styles.headerRow}></View>
-            <View>
-              {/*<Image source={require('./assets/avatar.png')}></Image>*/}
-              <View style={styles.onlineBadge}></View>
-            </View>
             <View style={styles.tags}>
               {SKILLS.map((skill) => (
                 <View key={skill} style={styles.tag}>
@@ -106,12 +102,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 4,
     bottom: 4,
-    width: 18,
-    height: 18,
+    width: 20,
+    height: 20,
     borderRadius: 9,
     backgroundColor: '#22C55E',
     borderWidth: 3,
-    borderColor: '#FFFFFF'
+    borderColor: '#FFFFFF',
+    right: 180,
+    top: 260,
   },
   actions: {
     flexDirection: 'row',

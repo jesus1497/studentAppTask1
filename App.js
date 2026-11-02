@@ -24,9 +24,6 @@ export default function App() {
         <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
         <View style={styles.body}>
           {/* TODO STEP 3: header row and stats row with Flexbox */}
-          <View style={styles.headerRow}>
-            <Image style={styles.avatar} source={require('./assets/avatar.png')}></Image>
-          </View>
           <View style={styles.headerText}>
             <Text style={styles.name}>Miguel Armenta</Text>
             <Text style={styles.role}>Developer</Text>
@@ -78,13 +75,45 @@ const styles = StyleSheet.create({
     backgroundColor: '#EEF1F6',
   },
   card: {
-
+    backgroundColor: "#FFFFFF",
+    borderRadius: 32,
+    overflow: "hidden",
   },
   onlineBadge: {
-    position: 'absolute', right: 4, bottom: 4, width: 18, height: 18,
-    borderRadius: 9, backgroundColor: '#22C55E', borderWidth: 3, borderColor: '#FFFFFF'
+    position: 'absolute',
+    right: 4, 
+    bottom: 4, 
+    width: 18, 
+    height: 18,
+    borderRadius: 9, 
+    backgroundColor: '#22C55E', 
+    borderWidth: 3, 
+    borderColor: '#FFFFFF'
   },
-  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 16 },
-  actions: { flexDirection: 'row', gap: 12, marginTop: 20 },
-  button: { flex: 1, alignItems: 'center', paddingVertical: 12 },
+  tags: { 
+    flexDirection: 'row', 
+    flexWrap: 'wrap', 
+    gap: 8, 
+    marginTop: 16 },
+  actions: { 
+    flexDirection: 'row', 
+    gap: 12, 
+    marginTop: 20 },
+  button: { 
+    flex: 1, 
+    alignItems: 'center', 
+    paddingVertical: 12 
+  },
+  avatar: {
+    width: 190,
+    height: 190,
+    borderRadius: 95,
+    backgroundColor: "#FFB74D",
+    borderWidth: 8,
+    borderColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 25,
+  },
+
 });

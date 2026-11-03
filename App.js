@@ -98,8 +98,14 @@ export default function App() {
             </View>
           </View>
           <View style={styles.profileHeader}>
-            <Text style={styles.bio}>Soy Lic en Ciencias Computacionales, tengo un background de desarrollador front end y con experiencia en JIRA habiendo trabajado en empresas como: Search Rebel, V Shred, Sunstate y CICESE.</Text>
+            <Text style={styles.bio} numberOfLines={isBioExpanded ? undefined : 3}>Soy Lic en Ciencias Computacionales, tengo un background de desarrollador front end y con experiencia en JIRA habiendo trabajado en empresas como: Search Rebel, V Shred, Sunstate y CICESE.</Text>
           </View>
+          <Pressable
+              onPress={() => setIsBioExpanded(!isBioExpanded)}>
+              <Text style={styles.link}>
+                {isBioExpanded ? 'Show Less' : 'Read more'}
+              </Text>
+            </Pressable>
           {/*Estadisticas*/}
           <View style={styles.statsRow}>
             {

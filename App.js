@@ -390,4 +390,64 @@ const styles = StyleSheet.create({
     color: "#3474F6",
     textAlign: "center",
   },
+  //new styles task 2
+  buttonFollowing: {
+    backgroundColor: COLORS.primaryLight,
+  },
+  followingText: {
+    color: COLORS.primary,
+  },
+  composer: {
+    marginTop: 16,
+  },
+  composerFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  counter: {
+    fontSize: 12,
+    color: COLORS.muted,
+  },
+  input: {
+    height: 44,
+    paddingHorizontal: 12,
+    fontSize: 15,
+    color: COLORS.text,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    borderRadius: 12,
+  },
+  link: {
+    marginTop: 4,
+    fontSize: 14,
+    fontWeight: '600',
+    paddingLeft: 23,
+    color: COLORS.primary,
+  },
+  offlineBadge: {
+    backgroundColor: COLORS.offline,
+  },
+  pressed: {
+    opacity: 0.6,
+  },
+  sendButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 10,
+    backgroundColor: COLORS.primary,
+  },
+  sendButtonDisabled: {
+    backgroundColor: COLORS.offline,
+  },
+  sendText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#FFFFFF',
+  },
+  shareWrapper: {
+    marginTop: 12,
+    alignItems: 'center',
+  },
 });

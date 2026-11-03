@@ -9,11 +9,11 @@ const BIO =
 
 const STATS = [
   { label: 'Projects', value: '24' },
-  { label: 'Followers', value: '1.2k' },
+  { label: 'Followers', value: '2' },
   { label: 'Following', value: '180' },
 ];
 
-const BASE_FOLLOWERS = 1200;
+const BASE_FOLLOWERS = 2;
 
 const MAX_MESSAGE = 140;
 
@@ -87,8 +87,23 @@ export default function App() {
         <View style={styles.card}>
           {/* TODO STEP 2: add the banner and the avatar with Image */}
           <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
+          {/* old code for avatar and onlineBadge
           <Image style={[styles.avatar, styles.circle1]} source={require('./assets/avatar.png')}></Image>
           <View style={styles.onlineBadge}></View>
+          */}
+          
+          <Pressable
+            onPress={() => setIsOnline(!isOnline)}
+          >
+            <Image style={[styles.avatar, styles.circle1]} source={require('./assets/avatar.png')}></Image>
+
+            <View
+              style={[
+                styles.onlineBadge,
+                !isOnline && styles.offlineBadge
+              ]}
+            />
+          </Pressable>
           <View style={styles.body}>
             {/* TODO STEP 3: header row and stats row with Flexbox */}
             <View style={styles.profileHeader}>
@@ -232,7 +247,7 @@ const styles = StyleSheet.create({
     borderRadius: 90,
     backgroundColor: "#7B70F9",
     right: 130,
-    top: 130,
+    top: -70,
   },
   card: {
     backgroundColor: "#FFFFFF",
@@ -250,7 +265,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#FFFFFF',
     right: 170,
-    top: 240,
+    top: 40,
   },
   actions: {
     flexDirection: 'row',

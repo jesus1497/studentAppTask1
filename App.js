@@ -101,11 +101,11 @@ export default function App() {
             <Text style={styles.bio} numberOfLines={isBioExpanded ? undefined : 3}>Soy Lic en Ciencias Computacionales, tengo un background de desarrollador front end y con experiencia en JIRA habiendo trabajado en empresas como: Search Rebel, V Shred, Sunstate y CICESE.</Text>
           </View>
           <Pressable
-              onPress={() => setIsBioExpanded(!isBioExpanded)}>
-              <Text style={styles.link}>
-                {isBioExpanded ? 'Show Less' : 'Read more'}
-              </Text>
-            </Pressable>
+            onPress={() => setIsBioExpanded(!isBioExpanded)}>
+            <Text style={styles.link}>
+              {isBioExpanded ? 'Show Less' : 'Read more'}
+            </Text>
+          </Pressable>
           {/*Estadisticas*/}
           <View style={styles.statsRow}>
             {
@@ -184,6 +184,13 @@ export default function App() {
 
               </View>
             )}
+          </View>
+          <View style={styles.shareWrapper}>
+            <Button
+              title="Share profile"
+              color={COLORS.primary}
+              onPress={handleSharePress}
+            />
           </View>
           {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
         </View>

@@ -1,6 +1,7 @@
 // Profile Card — practical task (React Native basics)
 // Follow the steps in README.md and build your solution in this file.
 import { View, Text, Image, StyleSheet, Pressable, Button, Alert, TextInput, ScrollView } from 'react-native';
+import { useState } from 'react';
 
 // Data to display. Do not change it.
 const BIO =
@@ -31,6 +32,52 @@ const SKILLS = [
   'Git',
   'Flexbox'
 ];
+const [isFollowing, setIsFollowing] = useState(false);
+const [isComposerOpen, setIsComposerOpen] = useState(false);
+const [message, setMessage] = useState('');
+const [isBioExpanded, setIsBioExpanded] = useState(false);
+const [isOnline, setIsOnline] = useState(true);
+const followers = BASE_FOLLOWERS + (isFollowing ? 1 : 0);
+const isSendDisabled = message.trim().length === 0;
+
+const handleFollowPress = () => {
+  setIsFollowing(!isFollowing);
+};
+
+const handleMessagePress = () => {
+  setIsComposerOpen(!isComposerOpen);
+};
+
+const handleSharePress = () => {
+  Alert.alert(
+    'Share profile',
+    'Sharing Miguel Armenta profile'
+  );
+};
+
+const handleSendPress = () => {
+  if (isSendDisabled) return;
+
+  Alert.alert(
+    'Message sent',
+    message
+  );
+
+  setMessage('');
+  setIsComposerOpen(false);
+};
+
+const handleSkillPress = (skill) => {
+  setSelectedSkills((previousSkills) => {
+    if (previousSkills.includes(skill)) {
+      return previousSkills.filter(
+        (item) => item !== skill
+      );
+    }
+
+    return [...previousSkills, skill];
+  });
+};
 
 export default function App() {
   return (

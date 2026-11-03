@@ -32,54 +32,54 @@ const SKILLS = [
   'Git',
   'Flexbox'
 ];
-const [isFollowing, setIsFollowing] = useState(false);
-const [isComposerOpen, setIsComposerOpen] = useState(false);
-const [message, setMessage] = useState('');
-const [isBioExpanded, setIsBioExpanded] = useState(false);
-const [isOnline, setIsOnline] = useState(true);
-const followers = BASE_FOLLOWERS + (isFollowing ? 1 : 0);
-const isSendDisabled = message.trim().length === 0;
-
-const handleFollowPress = () => {
-  setIsFollowing(!isFollowing);
-};
-
-const handleMessagePress = () => {
-  setIsComposerOpen(!isComposerOpen);
-};
-
-const handleSharePress = () => {
-  Alert.alert(
-    'Share profile',
-    'Sharing Miguel Armenta profile'
-  );
-};
-
-const handleSendPress = () => {
-  if (isSendDisabled) return;
-
-  Alert.alert(
-    'Message sent',
-    message
-  );
-
-  setMessage('');
-  setIsComposerOpen(false);
-};
-
-const handleSkillPress = (skill) => {
-  setSelectedSkills((previousSkills) => {
-    if (previousSkills.includes(skill)) {
-      return previousSkills.filter(
-        (item) => item !== skill
-      );
-    }
-
-    return [...previousSkills, skill];
-  });
-};
 
 export default function App() {
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [isComposerOpen, setIsComposerOpen] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isBioExpanded, setIsBioExpanded] = useState(false);
+  const [isOnline, setIsOnline] = useState(true);
+  const followers = BASE_FOLLOWERS + (isFollowing ? 1 : 0);
+  const isSendDisabled = message.trim().length === 0;
+
+  const handleFollowPress = () => {
+    setIsFollowing(!isFollowing);
+  };
+
+  const handleMessagePress = () => {
+    setIsComposerOpen(!isComposerOpen);
+  };
+
+  const handleSharePress = () => {
+    Alert.alert(
+      'Share profile',
+      'Sharing Miguel Armenta profile'
+    );
+  };
+
+  const handleSendPress = () => {
+    if (isSendDisabled) return;
+
+    Alert.alert(
+      'Message sent',
+      message
+    );
+
+    setMessage('');
+    setIsComposerOpen(false);
+  };
+
+  const handleSkillPress = (skill) => {
+    setSelectedSkills((previousSkills) => {
+      if (previousSkills.includes(skill)) {
+        return previousSkills.filter(
+          (item) => item !== skill
+        );
+      }
+
+      return [...previousSkills, skill];
+    });
+  };
   return (
     <View style={styles.screen}>
       {/* TODO STEP 1: build the card with View and Text (name, role, location, bio) */}
@@ -121,7 +121,16 @@ export default function App() {
               ))}
             </View>
             <View style={styles.actions}>
-              <Text style={[styles.button, styles.primaryButton, styles.buttonText]}>Follow</Text>
+              <Pressable
+                onPress={handleFollowPress}
+                style={({ pressed }) => [
+                  styles.button,
+                  styles.primaryButton,
+                  isFollowing && styles.buttonFollowing,
+                  pressed && styles.pressed,
+                ]}>
+                <Text style={[styles.buttonText, isFollowing ? 'Following' : 'Follow']}>Follow</Text>
+              </Pressable>
               <Text style={[styles.button, styles.messageButton, styles.messageText]}>Message</Text>
             </View>
           </View>
@@ -201,7 +210,7 @@ const styles = StyleSheet.create({
     marginLeft: 160,
     justifyContent: "center",
   },
-  sectionBio:{ 
+  sectionBio: {
     flex: 1,
     justifyContent: "center",
     padding: 20,

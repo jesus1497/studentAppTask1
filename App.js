@@ -12,6 +12,10 @@ const STATS = [
   { label: 'Following', value: '180' },
 ];
 
+const BASE_FOLLOWERS = 1200;
+
+const MAX_MESSAGE = 140;
+
 const SKILLS = [
   'React Native',
   'JavaScript',

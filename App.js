@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
   },
   circle1: {
     position: "absolute",
-    width: 180,
-    height: 180,
+    width: 150,
+    height: 150,
     borderRadius: 90,
     backgroundColor: "#7B70F9",
-    right: 125,
-    top: 110,
+    right: 160,
+    top: 130,
   },
   card: {
     backgroundColor: "#FFFFFF",
@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#22C55E',
     borderWidth: 3,
     borderColor: '#FFFFFF',
-    right: 180,
-    top: 260,
+    right: 200,
+    top: 250,
   },
   actions: {
     flexDirection: 'row',
@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   avatar: {
-    width: 190,
-    height: 190,
+    width: 100,
+    height: 100,
     borderRadius: 95,
     backgroundColor: "#FFB74D",
     borderWidth: 8,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   // Estadisticas
   statsRow: {
     flexDirection: "row",
-    width: "100%",
+    width: "max-content",
     justifyContent: "space-between",
     marginHorizontal: 40,
     alignItems: "center",
@@ -147,7 +147,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 20,
-    borderRightWidth: 1,
     borderColor: "#DDE1E7",
   },
   statsDivider: {
@@ -155,13 +154,13 @@ const styles = StyleSheet.create({
     borderColor: "#DDE1E7",
   },
   statValue: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: "bold",
     color: "#202431",
   },
 
   statLabel: {
-    fontSize: 24,
+    fontSize: 20,
     color: "#6B7280",
     marginTop: 5,
   },

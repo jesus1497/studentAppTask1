@@ -129,9 +129,18 @@ export default function App() {
                   isFollowing && styles.buttonFollowing,
                   pressed && styles.pressed,
                 ]}>
-                <Text style={[styles.buttonText, isFollowing ? 'Following' : 'Follow']}>Follow</Text>
+                <Text style={[styles.buttonText, isFollowing && styles.followingText]}>{isFollowing ? 'Following' : 'Follow'}</Text>
               </Pressable>
-              <Text style={[styles.button, styles.messageButton, styles.messageText]}>Message</Text>
+              <Pressable
+                onPress={handleMessagePress}
+                style={({ pressed }) => [
+                  styles.actionButton,
+                  styles.messageButton,
+                  pressed && styles.pressed
+                ]}
+              >
+                <Text style={[styles.messageText]}>{isComposerOpen ? 'Close' : 'Message'}</Text>
+              </Pressable>
             </View>
           </View>
           {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}

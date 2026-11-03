@@ -69,7 +69,6 @@ export default function App() {
           {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
         </View>
       </View>
-      <Text>TODO: build the profile card</Text>
     </View>
   );
 }
@@ -134,8 +133,9 @@ const styles = StyleSheet.create({
   profileHeader: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 40,
+    paddingHorizontal: 25,
     marginTop: 10,
+    marginBottom: 10,
   },
   headerText: {
     flex: 1,
@@ -144,8 +144,8 @@ const styles = StyleSheet.create({
   },
   sectionBio:{ 
     flex: 1,
-    marginLeft: 55,
     justifyContent: "center",
+    padding: 20,
   },
   name: {
     fontSize: 20,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "max-content",
     justifyContent: "space-between",
-    marginHorizontal: 40,
+    marginHorizontal: 25,
     alignItems: "center",
     borderTopWidth: 1,
     borderBottomWidth: 1,
@@ -194,13 +194,13 @@ const styles = StyleSheet.create({
     borderColor: "#DDE1E7",
   },
   statValue: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: "bold",
     color: "#202431",
   },
 
   statLabel: {
-    fontSize: 20,
+    fontSize: 13,
     color: "#6B7280",
     marginTop: 5,
   },
@@ -208,8 +208,8 @@ const styles = StyleSheet.create({
   tags: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginHorizontal: 10,
-    marginTop: 30,
+    marginHorizontal: 25,
+    marginTop: 20,
     gap: 10,
   },
   tag: {
@@ -228,9 +228,7 @@ const styles = StyleSheet.create({
   // Botones
   button: {
     alignItems: 'center',
-    paddingVertical: 12,
     flexDirection: "row",
-    marginHorizontal: 10,
     marginBottom: 20,
   },
 
@@ -239,6 +237,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3474F6",
     borderRadius: 10,
     paddingVertical: 10,
+    marginLeft: 30,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -248,6 +247,7 @@ const styles = StyleSheet.create({
     borderColor: "#3474F6",
     borderRadius: 10,
     paddingVertical: 10,
+    marginRight: 30,
     alignItems: "center",
     justifyContent: "center",
   },

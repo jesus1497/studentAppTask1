@@ -82,124 +82,136 @@ export default function App() {
   };
   return (
     <View style={styles.screen}>
-      {/* TODO STEP 1: build the card with View and Text (name, role, location, bio) */}
-      <View style={styles.card}>
-        {/* TODO STEP 2: add the banner and the avatar with Image */}
-        <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
-        <Image style={[styles.avatar, styles.circle1]} source={require('./assets/avatar.png')}></Image>
-        <View style={styles.onlineBadge}></View>
-        <View style={styles.body}>
-          {/* TODO STEP 3: header row and stats row with Flexbox */}
-          <View style={styles.profileHeader}>
-            <View style={styles.headerText}>
-              <Text style={styles.name}>Miguel Armenta</Text>
-              <Text style={styles.role}>Developer</Text>
-              <Text style={styles.location}>Sin, Mexico</Text>
-            </View>
-          </View>
-          <View style={styles.profileHeader}>
-            <Text style={styles.bio} numberOfLines={isBioExpanded ? undefined : 3}>Soy Lic en Ciencias Computacionales, tengo un background de desarrollador front end y con experiencia en JIRA habiendo trabajado en empresas como: Search Rebel, V Shred, Sunstate y CICESE.</Text>
-          </View>
-          <Pressable
-            onPress={() => setIsBioExpanded(!isBioExpanded)}>
-            <Text style={styles.link}>
-              {isBioExpanded ? 'Show Less' : 'Read more'}
-            </Text>
-          </Pressable>
-          {/*Estadisticas*/}
-          <View style={styles.statsRow}>
-            {
-              STATS.map((item, index) => (
-                <View key={item.label} style={[styles.stats, index !== STATS.length - 1 && styles.statsDivider]}>
-                  <Text style={styles.statValue}>{item.value === 'Followers' ? followers.toLocaleString('en-US') : item.value}</Text>
-                  <Text style={styles.statLabel}>{item.label}</Text>
-                </View>
-              ))
-            }
-          </View>
-          {/* TODO STEP 4: online badge, skill tags and action buttons (layout) */}
+      <ScrollView showsVerticalScrollIndicador={true} contentContainerStyle={styles.scrollContent}>
+        {/* TODO STEP 1: build the card with View and Text (name, role, location, bio) */}
+        <View style={styles.card}>
+          {/* TODO STEP 2: add the banner and the avatar with Image */}
+          <Image style={styles.banner} resizeMode="cover" source={require('./assets/banner.png')}></Image>
+          <Image style={[styles.avatar, styles.circle1]} source={require('./assets/avatar.png')}></Image>
+          <View style={styles.onlineBadge}></View>
           <View style={styles.body}>
-            <View style={styles.tags}>
-              {SKILLS.map((skill) => (
-                <View key={skill} style={styles.tag}>
-                  <Text style={styles.tagText}>{skill}</Text>
-                </View>
-              ))}
-            </View>
-            <View style={styles.actions}>
-              <Pressable
-                onPress={handleFollowPress}
-                style={({ pressed }) => [
-                  styles.button,
-                  styles.primaryButton,
-                  isFollowing && styles.buttonFollowing,
-                  pressed && styles.pressed,
-                ]}>
-                <Text style={[styles.buttonText, isFollowing && styles.followingText]}>{isFollowing ? 'Following' : 'Follow'}</Text>
-              </Pressable>
-              <Pressable
-                onPress={handleMessagePress}
-                style={({ pressed }) => [
-                  styles.actionButton,
-                  styles.messageButton,
-                  pressed && styles.pressed
-                ]}
-              >
-                <Text style={[styles.messageText]}>{isComposerOpen ? 'Close' : 'Message'}</Text>
-              </Pressable>
-            </View>
-            {isComposerOpen && (
-              <View style={styles.composer}>
-
-                <TextInput
-                  style={styles.input}
-                  value={message}
-                  onChangeText={(newText) => setMessage(newText)}
-                  maxLength={MAX_MESSAGE}
-                  placeholder="Write a message..."
-                  placeholderTextColor={COLORS.muted}
-                />
-
-                <View style={styles.composerFooter}>
-
-                  <Text style={styles.counter}>
-                    {message.length}/{MAX_MESSAGE} characters
-                  </Text>
-
-                  <Pressable
-                    disabled={isSendDisabled}
-                    onPress={handleSendPress}
-                    style={({ pressed }) => [
-                      styles.sendButton,
-                      isSendDisabled && styles.sendButtonDisabled,
-                      pressed && styles.pressed
-                    ]}
-                  >
-                    <Text style={styles.sendText}>
-                      Send
-                    </Text>
-                  </Pressable>
-
-                </View>
-
+            {/* TODO STEP 3: header row and stats row with Flexbox */}
+            <View style={styles.profileHeader}>
+              <View style={styles.headerText}>
+                <Text style={styles.name}>Miguel Armenta</Text>
+                <Text style={styles.role}>Developer</Text>
+                <Text style={styles.location}>Sin, Mexico</Text>
               </View>
-            )}
+            </View>
+            <View style={styles.profileHeader}>
+              <Text style={styles.bio} numberOfLines={isBioExpanded ? undefined : 3}>Soy Lic en Ciencias Computacionales, tengo un background de desarrollador front end y con experiencia en JIRA habiendo trabajado en empresas como: Search Rebel, V Shred, Sunstate y CICESE.</Text>
+            </View>
+            <Pressable
+              onPress={() => setIsBioExpanded(!isBioExpanded)}>
+              <Text style={styles.link}>
+                {isBioExpanded ? 'Show Less' : 'Read more'}
+              </Text>
+            </Pressable>
+            {/*Estadisticas*/}
+            <View style={styles.statsRow}>
+              {
+                STATS.map((item, index) => (
+                  <View key={item.label} style={[styles.stats, index !== STATS.length - 1 && styles.statsDivider]}>
+                    <Text style={styles.statValue}>{item.value === 'Followers' ? followers.toLocaleString('en-US') : item.value}</Text>
+                    <Text style={styles.statLabel}>{item.label}</Text>
+                  </View>
+                ))
+              }
+            </View>
+            {/* TODO STEP 4: online badge, skill tags and action buttons (layout) */}
+            <View style={styles.body}>
+              <View style={styles.tags}>
+                {SKILLS.map((skill) => (
+                  <View key={skill} style={styles.tag}>
+                    <Text style={styles.tagText}>{skill}</Text>
+                  </View>
+                ))}
+              </View>
+              <View style={styles.actions}>
+                <Pressable
+                  onPress={handleFollowPress}
+                  style={({ pressed }) => [
+                    styles.button,
+                    styles.primaryButton,
+                    isFollowing && styles.buttonFollowing,
+                    pressed && styles.pressed,
+                  ]}>
+                  <Text style={[styles.buttonText, isFollowing && styles.followingText]}>{isFollowing ? 'Following' : 'Follow'}</Text>
+                </Pressable>
+                <Pressable
+                  onPress={handleMessagePress}
+                  style={({ pressed }) => [
+                    styles.actionButton,
+                    styles.messageButton,
+                    pressed && styles.pressed
+                  ]}
+                >
+                  <Text style={styles.messageText}>{isComposerOpen ? 'Close' : 'Message'}</Text>
+                </Pressable>
+              </View>
+              {isComposerOpen && (
+                <View style={styles.composer}>
+
+                  <TextInput
+                    style={styles.input}
+                    value={message}
+                    onChangeText={(newText) => setMessage(newText)}
+                    maxLength={MAX_MESSAGE}
+                    placeholder="Write a message..."
+                    placeholderTextColor={COLORS.muted}
+                  />
+
+                  <View style={styles.composerFooter}>
+
+                    <Text style={styles.counter}>
+                      {message.length}/{MAX_MESSAGE} characters
+                    </Text>
+
+                    <Pressable
+                      disabled={isSendDisabled}
+                      onPress={handleSendPress}
+                      style={({ pressed }) => [
+                        styles.sendButton,
+                        isSendDisabled && styles.sendButtonDisabled,
+                        pressed && styles.pressed
+                      ]}
+                    >
+                      <Text style={styles.sendText}>
+                        Send
+                      </Text>
+                    </Pressable>
+
+                  </View>
+
+                </View>
+              )}
+            </View>
+            <View style={styles.shareWrapper}>
+              <Button
+                title="Share profile"
+                color={COLORS.primary}
+                onPress={handleSharePress}
+              />
+            </View>
+            {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
           </View>
-          <View style={styles.shareWrapper}>
-            <Button
-              title="Share profile"
-              color={COLORS.primary}
-              onPress={handleSharePress}
-            />
-          </View>
-          {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screenScroll: {
+    flex: 1,
+    backgroundColor: '#f0f0f0',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingTop: 64,
+    paddingHorizontal: 20,
+    paddingBottom: 40,
+  },
   screen: {
     flex: 1,
     paddingTop: 64,
@@ -219,7 +231,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 90,
     backgroundColor: "#7B70F9",
-    right: 160,
+    right: 130,
     top: 130,
   },
   card: {
@@ -237,8 +249,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#22C55E',
     borderWidth: 3,
     borderColor: '#FFFFFF',
-    right: 200,
-    top: 250,
+    right: 170,
+    top: 240,
   },
   actions: {
     flexDirection: 'row',
@@ -355,7 +367,6 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     flexDirection: "row",
-    marginBottom: 20,
   },
 
   primaryButton: {

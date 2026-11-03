@@ -1,6 +1,6 @@
 // Profile Card — practical task (React Native basics)
 // Follow the steps in README.md and build your solution in this file.
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, Button, Alert, TextInput, ScrollView } from 'react-native';
 
 // Data to display. Do not change it.
 const BIO =

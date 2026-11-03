@@ -105,7 +105,7 @@ export default function App() {
             {
               STATS.map((item, index) => (
                 <View key={item.label} style={[styles.stats, index !== STATS.length - 1 && styles.statsDivider]}>
-                  <Text style={styles.statValue}>{item.value}</Text>
+                  <Text style={styles.statValue}>{item.value === 'Followers' ? followers.toLocaleString('en-US') : item.value}</Text>
                   <Text style={styles.statLabel}>{item.label}</Text>
                 </View>
               ))
@@ -142,6 +142,42 @@ export default function App() {
                 <Text style={[styles.messageText]}>{isComposerOpen ? 'Close' : 'Message'}</Text>
               </Pressable>
             </View>
+            {isComposerOpen && (
+              <View style={styles.composer}>
+
+                <TextInput
+                  style={styles.input}
+                  value={message}
+                  onChangeText={(newText) => setMessage(newText)}
+                  maxLength={MAX_MESSAGE}
+                  placeholder="Write a message..."
+                  placeholderTextColor={COLORS.muted}
+                />
+
+                <View style={styles.composerFooter}>
+
+                  <Text style={styles.counter}>
+                    {message.length}/{MAX_MESSAGE} characters
+                  </Text>
+
+                  <Pressable
+                    disabled={isSendDisabled}
+                    onPress={handleSendPress}
+                    style={({ pressed }) => [
+                      styles.sendButton,
+                      isSendDisabled && styles.sendButtonDisabled,
+                      pressed && styles.pressed
+                    ]}
+                  >
+                    <Text style={styles.sendText}>
+                      Send
+                    </Text>
+                  </Pressable>
+
+                </View>
+
+              </View>
+            )}
           </View>
           {/* TODO STEP 5: polish the styles (colors, typography, shadow) */}
         </View>

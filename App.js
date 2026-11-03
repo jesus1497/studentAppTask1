@@ -38,10 +38,10 @@ export default function App() {
             <Text style={styles.bio}>Pending?</Text>
           </View>
           {/*Estadisticas*/}
-          <View styles={styles.statsRow}>
+          <View style={styles.statsRow}>
             {
               STATS.map((item, index) => (
-                <View key={item.label} style={[styles.stats, index - STATS.length - 1 && styles.statsDevider]}>
+                <View key={item.label} style={[styles.stats, index !== STATS.length - 1 && styles.statsDivider]}>
                   <Text style={styles.statValue}>{item.value}</Text>
                   <Text style={styles.statLabel}>{item.label}</Text>
                 </View>
@@ -116,11 +116,6 @@ const styles = StyleSheet.create({
     gap: 12,
     marginTop: 20
   },
-  button: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 12
-  },
   avatar: {
     width: 190,
     height: 190,
@@ -139,7 +134,10 @@ const styles = StyleSheet.create({
   // Estadisticas
   statsRow: {
     flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
     marginHorizontal: 40,
+    alignItems: "center",
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: "#DDE1E7",
@@ -147,7 +145,12 @@ const styles = StyleSheet.create({
   stats: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 20,
+    borderRightWidth: 1,
+    borderColor: "#DDE1E7",
+  },
+  statsDivider: {
     borderRightWidth: 1,
     borderColor: "#DDE1E7",
   },
@@ -185,6 +188,8 @@ const styles = StyleSheet.create({
   // Skills
   // Botones
   button: {
+    alignItems: 'center',
+    paddingVertical: 12,
     flexDirection: "row",
     marginHorizontal: 10,
     marginTop: 40,

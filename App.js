@@ -31,10 +31,14 @@ export default function App() {
         <View style={styles.onlineBadge}></View>
         <View style={styles.body}>
           {/* TODO STEP 3: header row and stats row with Flexbox */}
-          <View style={styles.headerText}>
-            <Text style={styles.name}>Miguel Armenta</Text>
-            <Text style={styles.role}>Developer</Text>
-            <Text style={styles.location}>Sin, Mexico</Text>
+          <View style={styles.profileHeader}>
+            <View style={styles.headerText}>
+              <Text style={styles.name}>Miguel Armenta</Text>
+              <Text style={styles.role}>Developer</Text>
+              <Text style={styles.location}>Sin, Mexico</Text>
+            </View>
+          </View>
+          <View style={styles.profileHeader}>
             <Text style={styles.bio}>Pending?</Text>
           </View>
           {/*Estadisticas*/}
@@ -127,9 +131,45 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 25,
   },
+  profileHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 40,
+    marginTop: 10,
+  },
   headerText: {
     flex: 1,
-    paddingTop: 0,
+    marginLeft: 160,
+    justifyContent: "center",
+  },
+  sectionBio:{ 
+    flex: 1,
+    marginLeft: 55,
+    justifyContent: "center",
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#202431",
+  },
+  role: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#3474F6",
+    marginTop: 5,
+  },
+
+  location: {
+    fontSize: 15,
+    color: "#6B7280",
+    marginTop: 5,
+  },
+
+  bio: {
+    fontSize: 14,
+    lineHeight: 21,
+    color: "#202431",
+    marginTop: 12,
   },
   // Estadisticas
   statsRow: {

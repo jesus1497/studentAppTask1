@@ -39,7 +39,7 @@ export default function App() {
             </View>
           </View>
           <View style={styles.profileHeader}>
-            <Text style={styles.bio}>Pending?</Text>
+            <Text style={styles.bio}>Soy Lic en Ciencias Computacionales, tengo un background de desarrollador front end y con experiencia en JIRA habiendo trabajado en empresas como: Search Rebel, V Shred, Sunstate y CICESE.</Text>
           </View>
           {/*Estadisticas*/}
           <View style={styles.statsRow}>

@@ -416,6 +416,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 8,
+    marginLeft: 30,
+    marginRight: 30,
   },
   counter: {
     fontSize: 12,
@@ -429,6 +431,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.border,
     borderRadius: 12,
+    marginLeft: 30,
+    marginRight: 30,
   },
   link: {
     marginTop: 4,

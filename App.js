@@ -16,6 +16,14 @@ const BASE_FOLLOWERS = 1200;
 
 const MAX_MESSAGE = 140;
 
+const COLORS = {
+  primary: "#3474F6",
+  primaryLight: "#E6EEFF",
+  muted: "#6B7280",
+  text: "#202431",
+  border: "#DDE1E7",
+  offline: "#9CA3AF",
+}
 const SKILLS = [
   'React Native',
   'JavaScript',
